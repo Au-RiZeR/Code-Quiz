@@ -3,10 +3,14 @@ $( document ).ready(function() {
     var quizTime = 90;
     var x
     var finished
+    var question = 1;
+    var score = 0;
 
     $("#start").click(function (e) { 
         e.preventDefault();
+        score = 0;
         quizTime = 90;
+        $("#score").text(score);
         document.getElementById("start").disabled = true;
         x = setInterval(function() {
             quizTime = quizTime -1;
@@ -17,6 +21,7 @@ $( document ).ready(function() {
             console.log(quizTime);
             checkFinish();
             }, 1000);
+            document.getElementById("q1").style.display = "block";
     });
 
     function checkFinish() {
@@ -29,11 +34,13 @@ $( document ).ready(function() {
 $("ul").click(function (e) { 
     e.preventDefault();
     var element = e.target;
-      
-      var answer = element.getAttribute("data-answer");
-  
+    var answer = element.getAttribute("data-answer");
+    
+    // document.getElementById(`q${question}`).style.display = "none";
+
       if (answer === "correct") {
         $("#response").html("correct");
+        score = score + 10
       } else {
         // Change the attributes back to their non-animated values
         $("#response").html("wrong");
@@ -43,8 +50,22 @@ $("ul").click(function (e) {
             quizTime = quizTime - 5;
         }
       }
+      document.getElementById(`q${question}`).style.display = "none";
+      question = question + 1;
+      $("#score").text(score);
+      if (question == 6) {
+          finished = true;
+          question = 1;
+          scoreBonus();
+      } else {
+      document.getElementById(`q${question}`).style.display = "block";}
     });
 
+    function scoreBonus() {
+        timeBonus = quizTime / 5;
+        score = timeBonus + score;
+        $("#score").text(score);
+    }
       
 
 
