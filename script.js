@@ -10,8 +10,9 @@ $( document ).ready(function() {
         e.preventDefault();
         score = 0;
         quizTime = 90;
+        finished = false;
         $("#score").text(score);
-        document.getElementById("start").disabled = true;
+        document.getElementById("start").style.display = "none";
         x = setInterval(function() {
             quizTime = quizTime -1;
             if (quizTime < 0) {
@@ -27,7 +28,7 @@ $( document ).ready(function() {
     function checkFinish() {
         if (quizTime <= 0 || finished == true) {
             clearInterval(x);
-            document.getElementById("start").disabled = false;
+            document.getElementById("start").style.display = "block";
         }
     }
 
