@@ -15,7 +15,7 @@ $( document ).ready(function() {
         e.preventDefault();
         highscoreList.innerHTML = "";
         score = 0;
-        quizTime = 10;
+        quizTime = 90;
         question = 1;
         finished = false;
         $("#score").text(score);
