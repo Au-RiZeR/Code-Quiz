@@ -37,10 +37,10 @@ $( document ).ready(function() {
         var answer = element.getAttribute("data-answer");
         // Checks the LI's attribute property to check if its correct or wrong
         if (answer === "correct") {
-            $("#response").html("correct");
+            $("#response").html("Correct");
             score = score + 10
         } else {
-            $("#response").html("wrong");
+            $("#response").html("Wrong");
             if (quizTime <= 5) {
                 quizTime = quizTime - quizTime;
             } else {
