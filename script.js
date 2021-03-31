@@ -5,11 +5,8 @@ $( document ).ready(function() {
     var finished
     var question = 1;
     var score = 0;
-    // var highscores = localStorage.getItem("a")
     var i
-    // localStorage.clear();
 
-    // for (i = 0; i < localStorage.length; i++)  console.log( localStorage.highscores(i) +" has value " + localStorage[localStorage.highscores(i)] )
 
     $("#start").click(function (e) { 
         e.preventDefault();
