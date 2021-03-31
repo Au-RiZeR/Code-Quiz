@@ -27,6 +27,9 @@ ul {
     padding: 0px;
     text-align: center;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hidden {
@@ -47,4 +50,19 @@ h2 {
 
 .question {
     display: none;
+}
+
+li {
+    max-width: 200px;
+    min-width: 200px;
+    color: white;
+    background-color: red;
+    margin: 3px;
+    border: 10px solid red;
+    border-radius: 10px;
+}
+
+li:hover {
+    background-color: tomato;
+    border-color: tomato ;
 }
