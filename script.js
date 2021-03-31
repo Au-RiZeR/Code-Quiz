@@ -9,7 +9,7 @@ $( document ).ready(function() {
     var i
     // localStorage.clear();
 
-    for (i = 0; i < localStorage.length; i++)  console.log( localStorage.highscores(i) +" has value " + localStorage[localStorage.highscores(i)] )
+    // for (i = 0; i < localStorage.length; i++)  console.log( localStorage.highscores(i) +" has value " + localStorage[localStorage.highscores(i)] )
 
     $("#start").click(function (e) { 
         e.preventDefault();
@@ -24,25 +24,15 @@ $( document ).ready(function() {
             quizTime = quizTime -1;
             if (quizTime <= 0) {
                 quizTime = 0;
+                end()
             }
             
             $("#timer").html(quizTime);
             // console.log(quizTime);
-            checkFinish();
             }, 1000);
             document.getElementById("q1").style.display = "block";
     });
 
-    function checkFinish() {
-        if (quizTime <= 0 || finished == true) {
-            clearInterval(x);
-            document.getElementById("start").style.display = "block";
-            for (i = 1; i < 6; i++) {
-                document.getElementById(`q${i}`).style.display = "none";
-            }
-            end()
-        }
-    }
 
 $("ul").click(function (e) { 
     e.preventDefault();
@@ -109,13 +99,17 @@ $("ul").click(function (e) {
             question = 1
         }
 
-        function end(params) {
-            finished = true;
+        function end() {
             scoreBonus();
             $("#response").html(null);
             var highscore = prompt("Please enter your initials") + (` ${score}`)
             i = localStorage.length+1;
             localStorage.setItem(i, highscore);
+            clearInterval(x);
+            document.getElementById("start").style.display = "block";
+            for (i = 1; i < 6; i++) {
+                document.getElementById(`q${i}`).style.display = "none";
+            }
             console.log(highscore)
             console.log(localStorage)
             console.log(localStorage.length)
