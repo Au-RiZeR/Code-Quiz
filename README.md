@@ -9,5 +9,5 @@ https://au-rizer.github.io/Code-Quiz/
 ## Screen-capture
 <img width="1392" alt="Screen Shot 2021-03-31 at 9 07 46 pm" src="https://user-images.githubusercontent.com/32904314/113149299-6643be80-9265-11eb-9c61-65bfc6da203b.png">
 
-## Aknowledgements and Author
+## Acknowledgements and Author
 The Man, The Myth, The Mistake - Ricky Gobby.
